@@ -8,7 +8,6 @@ router.get('/', function(req,res){
         
         Campground.find({
             
-            
         }, function(err,camp){
             if(err){
                 console.log(err)
@@ -21,9 +20,7 @@ router.get('/', function(req,res){
                 res.render('campgrounds/index', {campgrounds:camp})
             }
         })
-        
-        
-       
+
 })
 
 
@@ -82,12 +79,13 @@ router.get('/:id', function(req,res){
     
 })
 
+
+// middleware
 function isLoggedin(req,res,next){
     if(req.isAuthenticated()){
         return next()
     }
     res.redirect('/login')
-    
 }
 
 
