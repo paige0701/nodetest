@@ -26,15 +26,21 @@ router.get('/', function(req,res){
 
 // CREATE -- add new campground to DB
 // same name but different method ! 
-router.post('/', function(req, res){
+router.post('/', isLoggedin, function(req, res){
    
     // get data from form and add to array
     var name = req.body.name
     var image = req.body.image
     var desc = req.body.description
-    
+    var author = {
+        id : req.user._id,
+        username : req.user.username
+        
+    }
     // 
-    var newCampground = {name:name, image:image, description:desc}
+    var newCampground = {name:name, image:image, description:desc, author:author}
+    
+    console.log("this one == ? ", req.user)
     // campgrounds.push(newCampground)
     // redirect to campgrounds page
     
@@ -46,7 +52,8 @@ router.post('/', function(req, res){
             
             console.log(err)
         }else{
-            res.redirect('/index')
+            console.log(camp)
+            res.redirect('/campgrounds')
         }
     })
     
@@ -56,7 +63,7 @@ router.post('/', function(req, res){
 
 
 //NEW -- form for adding new campground
-router.get('/new', function(req,res){
+router.get('/new',isLoggedin, function(req,res){
     res.render('campgrounds/new')
     
 })
@@ -87,6 +94,8 @@ function isLoggedin(req,res,next){
     }
     res.redirect('/login')
 }
+
+
 
 
 module.exports = router

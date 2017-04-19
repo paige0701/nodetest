@@ -19,7 +19,7 @@ var commentRoutes = require("./routes/comments"),
 
 
 // this will create yelp_camp db in mongodb
-mongoose.connect("mongodb://localhost/yelp_camp_v8")
+mongoose.connect("mongodb://localhost/yelp_camp_v9")
 // mongoose.connect("mongodb://localhost/my_friends")
 // yelp_Camp, my_friends is the name of the database ...
 // if there is a database called my_friends, it will add to that, if there isnt one, it will make a database with that name
