@@ -7,7 +7,8 @@ var express         = require("express"),
     Comment         = require("./models/comment"),
     passport        = require("passport"),
     LocalStrategy   = require("passport-local"),
-    User            = require("./models/user")
+    User            = require("./models/user"),
+    methodOverride  = require("method-override")
  
  
 // requiring routes   
@@ -34,7 +35,8 @@ mongoose.connect("mongodb://localhost/yelp_camp_v9")
 // telling the app to use the body parser that we have installed.
 app.use(bodyParser.urlencoded({extended:true}))
 
-
+// Using the method override
+app.use(methodOverride("_method"))
 
 // setting the view engine to ejs so we dont have to write extension every time we call the view page
 app.set("view engine", "ejs")
