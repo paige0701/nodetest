@@ -19,11 +19,16 @@
                     <h4><%= campground.name %></h4>
                     <p><%= campground.description %></p>
                     Submitted by <p><%= campground.author.username %></p>
-                    <a href='/campgrounds/<%= campground._id %>/edit' class='btn btn-danger'>Edit</a>
-                    <form class='deletebutton' action='/campgrounds/<%= campground._id %>?_method=DELETE' method='POST'>
+                    
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){  %>
+                        <a href='/campgrounds/<%= campground._id %>/edit' class='btn btn-danger'>Edit</a>
+                        <form class='deletebutton' action='/campgrounds/<%= campground._id %>?_method=DELETE' method='POST'>
                         <button type='submit' class='btn btn-danger'>Delete</a>
-                        
-                    </form>
+                        </form>
+                    <% } %>
+                    
+                    
+                    
                 </div>
                 
             </div>

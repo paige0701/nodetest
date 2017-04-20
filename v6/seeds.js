@@ -31,31 +31,31 @@ function seedDB(){
         }else{
             console.log("Removed campgroudns ! ")
             // add new campgrounds
-            data.forEach(function(seed){
-                Campground.create(seed, function(err,data){
-                    if(err){
-                        console.log(err)
-                    }else{
-                        console.log("added data")
-                        //create comments
-                        Comment.create({
-                            text:"This place is alright",
-                            author : "John Smith"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err)
-                            }else{
+            // data.forEach(function(seed){
+            //     Campground.create(seed, function(err,data){
+            //         if(err){
+            //             console.log(err)
+            //         }else{
+            //             console.log("added data")
+            //             //create comments
+            //             Comment.create({
+            //                 text:"This place is alright",
+            //                 author : "John Smith"
+            //             }, function(err, comment){
+            //                 if(err){
+            //                     console.log(err)
+            //                 }else{
                                 
-                                data.comments.push(comment);
-                                data.save();
-                                console.log("wrote comments")
-                            }
+            //                     data.comments.push(comment);
+            //                     data.save();
+            //                     console.log("wrote comments")
+            //                 }
                             
-                        })
-                    }
+            //             })
+            //         }
                     
-                })
-             })
+            //     })
+            //  })
              
             
         }
