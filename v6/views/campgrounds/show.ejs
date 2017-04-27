@@ -45,6 +45,16 @@
                             <strong><%= data.author.username %></strong>
                             <span class="pull-right">10 days ago</span>
                             <p><%= data.text %></p>
+                            
+                            <% if(currentUser && data.author.id.equals(currentUser._id)){%>
+                            <a href='/campgrounds/<%= campground._id %>/comments/<%= data._id %>/edit' class='btn btn-xs btn-warning'>Edit</a>
+                            
+                            <form class='deletebutton' action='/campgrounds/<%= campground._id %>/comments/<%= data._id %>?_method=DELETE' method='POST'>
+                                <input type='submit' class='btn btn-xs btn-warning' value='Delete' />
+                            </form>
+                            <% } %>
+                            
+                            
                         </div>
                         
                     </div>
