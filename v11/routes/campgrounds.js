@@ -31,6 +31,7 @@ router.post('/', middleware.isLoggedin, function(req, res){
     // get data from form and add to array
     var name = req.body.name
     var image = req.body.image
+    var price = req.body.price
     var desc = req.body.description
     var author = {
         id : req.user._id,
@@ -38,7 +39,7 @@ router.post('/', middleware.isLoggedin, function(req, res){
         
     }
     // 
-    var newCampground = {name:name, image:image, description:desc, author:author}
+    var newCampground = {name:name, image:image, description:desc, author:author, price:price}
     
     console.log("this one == ? ", req.user)
     // campgrounds.push(newCampground)
