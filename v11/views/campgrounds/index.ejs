@@ -1,5 +1,4 @@
 <% include ../partials/header %>
-<div class='container'>
     <header class='jumbotron'>
         <div class='container'>
             <h1>Welcome to Magnetica ! </h1>
@@ -15,7 +14,7 @@
             <div class='col-md-3 col-sm-6'> 
                 <div class='thumbnail'>
                
-                    <img src="<%= camp.image %>"></img>
+                    <img id='indeximage' src="<%= camp.image %>"></img>
                      <div class='caption'>
                         <h4><%= camp.name %></h4>
                     </div>
@@ -24,6 +23,5 @@
             </div>
         <% }) %>
     </div>
-</div>
 
 <% include ../partials/footer %>

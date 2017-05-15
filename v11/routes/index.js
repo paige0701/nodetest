@@ -17,7 +17,7 @@ router.get('/', function(req, res){
 
 // Register Form
 router.get('/register', function(req,res){
-    res.render('register')
+    res.render('register', {page: 'register'})
 })
 
 
@@ -26,11 +26,15 @@ router.post('/register', function(req,res){
     // .register is provided by passport-local-mongoose
     var newUser = new User({username:req.body.username});
     User.register(newUser, req.body.password, function(error, user){
+        // if(error){
+        //     console.log(error);
+        //     req.flash('error', error.message);
+        //     return res.render('register');
+        // }
         if(error){
             console.log(error);
-            req.flash('error', error.message);
-            return res.render('register');
-        }
+            return res.render("register", {error: error.message});
+            }
         
         // log them in
         passport.authenticate("local")(req,res,function(){
@@ -43,7 +47,7 @@ router.post('/register', function(req,res){
 
 // Login form
 router.get('/login', function(req,res){
-    res.render('login')
+    res.render('login', {page: 'login'})
 })
 
 

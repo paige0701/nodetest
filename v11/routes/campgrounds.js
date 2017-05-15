@@ -17,7 +17,7 @@ router.get('/', function(req,res){
                  // {data name (anything you want - what you are going to use in the template !!) : data that we are passing in }
                 // res.render('campgrounds', {campgrounds:campgrounds})
                 
-                res.render('campgrounds/index', {campgrounds:camp})
+                res.render('campgrounds/index', {campgrounds:camp, page:'magenetica'})
             }
         })
 
