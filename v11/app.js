@@ -9,13 +9,15 @@ var express         = require("express"),
     LocalStrategy   = require("passport-local"),
     User            = require("./models/user"),
     methodOverride  = require("method-override"),
-    flash           = require("connect-flash")
+    flash           = require("connect-flash"),
+    multer          = require('multer');
  
  
 // requiring routes   
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index")
+
 
 
 
@@ -73,6 +75,17 @@ app.use(function(req, res, next){
     res.locals.success = req.flash('success');
     next();
 });
+
+
+// // using multer
+// var Storage = multer.diskStorage({
+//      destination: function(req, file, callback) {
+//          callback(null, "./Images");
+//      },
+//      filename: function(req, file, callback) {
+//          callback(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
+//      }
+//  });
 
 
 // telling app to use these routes

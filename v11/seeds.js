@@ -1,25 +1,25 @@
 var moongoose = require("mongoose")
 var Campground = require("./models/campground")
 var Comment = require("./models/comment")
-var data = [
-    {
-        name:"Clouds nest",
-        image :"http://photosforclass.com/download/32901504016",
-        description:"Largest nest in the US"
+// var data = [
+//     {
+//         name:"Clouds nest",
+//         image :"http://photosforclass.com/download/32901504016",
+//         description:"Largest nest in the US"
         
-    },
-    {
-        name:"Canyan Crest",
-        image :"http://photosforclass.com/download/8240036928",
-        description:"Cheapest Campsite"
+//     },
+//     {
+//         name:"Canyan Crest",
+//         image :"http://photosforclass.com/download/8240036928",
+//         description:"Cheapest Campsite"
         
-    },
-    {
-        name:"Mays nest",
-        image :"http://photosforclass.com/download/5822548113",
-        description:"Amazing view lies..... "
+//     },
+//     {
+//         name:"Mays nest",
+//         image :"http://photosforclass.com/download/5822548113",
+//         description:"Amazing view lies..... "
         
-    }]
+//     }]
 
 
 function seedDB(){
